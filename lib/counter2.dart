@@ -24,7 +24,7 @@ class CounterTwo extends StatelessWidget {
               onPressed: () {
                 number.value++;
               },
-              child: Text('press')),
+              child: Text('click')),
         ],
       ),
     ));
