@@ -21,10 +21,11 @@ class CounterTwo extends StatelessWidget {
             );
           }),
           ElevatedButton(
-              onPressed: () {
-                number.value++;
-              },
-              child: Text('press')),
+            onPressed: () {
+              number.value++;
+            },
+            child: Text('press'),
+          ),
         ],
       ),
     ));

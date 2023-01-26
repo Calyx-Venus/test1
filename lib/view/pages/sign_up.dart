@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:test1/controllers/auth_controller.dart';
 import 'package:test1/view/components/text_field_builder.dart';
 import 'package:get/get.dart';
 import 'package:test1/controllers/sign_up_controller.dart';
+
+//note logic for this page is held in seperate controllers + builders
+//controllers are attached via get.put
+//controller handles put in variable cups
 
 class NewAccount extends StatefulWidget {
   const NewAccount({super.key});
@@ -13,9 +18,11 @@ class NewAccount extends StatefulWidget {
 class _NewAccountState extends State<NewAccount> {
   // this is important-need to 'put' your controller in memory for later use
   SignUpController controller = Get.put(SignUpController());
-  final formKey = GlobalKey<FormState>();
+  AuthController auth = Get.put(AuthController()); //variable //put into memory
+
   @override
   Widget build(BuildContext context) {
+    print('##################################### this page runs');
     return Scaffold(
       appBar: AppBar(
         title: Container(
@@ -44,16 +51,34 @@ class _NewAccountState extends State<NewAccount> {
             //it is formkey because that was the global variable
             //established above.
             Form(
-              key: formKey,
-              child: TextFieldBuilder(
-                hint: 'email',
-                icon: Icon(Icons.email_outlined),
-                obscure: false,
-                //validator logic bit is in a controller
-                validator: (value) {
-                  //need to call the controller
-                  return controller.emailValidation(value);
-                },
+              key: controller.formKey,
+              child: Column(
+                children: [
+                  //calling my builder -it takes some parameters
+                  TextFieldBuilder(
+                    controller: controller
+                        .emailController, //have to access email controller from sign-up-controller
+                    hint: 'email',
+                    icon: Icon(Icons.email_outlined),
+                    obscure: false,
+                    //validator logic bit is in a controller
+                    validator: (value) {
+                      //need to call the controller
+                      return controller.emailValidation(value);
+                    },
+                  ),
+                  TextFieldBuilder(
+                    controller: controller.passwordController,
+                    hint: 'password',
+                    icon: Icon(Icons.email_outlined),
+                    obscure: true,
+                    //validator logic bit is in a controller
+                    validator: (value) {
+                      //need to call the controller
+                      //return controller.emailValidation(value);
+                    },
+                  ),
+                ],
               ),
             ),
 
@@ -61,19 +86,18 @@ class _NewAccountState extends State<NewAccount> {
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
                 onPressed: () {
-                  //when you press  this button, all the
+                  //when you press this button, all the
                   //validators you set up will be checked.
                   //if they are validated, the code written here
                   //will run. In this case, a snack bar
                   //message
                   //form key validation has to be reference here
                   //at the button.
-                  if (formKey.currentState!.validate()) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text('Processing..'),
-                      ),
-                    );
+                  if (controller.formKey.currentState!.validate()) {
+                    auth.emailAndPasswordSignUp(
+                        controller.emailController.text,
+                        controller
+                            .passwordController.text); //takes two parameters
                   }
                 },
                 child: Text('Submit'),

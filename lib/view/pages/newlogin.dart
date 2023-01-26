@@ -6,6 +6,8 @@ import 'package:test1/view/pages/landing_page.dart';
 
 import 'package:test1/view/pages/sign_up.dart';
 
+import '../../controllers/auth_controller.dart';
+
 //import first, then stateful W
 
 class loginTwo extends StatefulWidget {
@@ -25,6 +27,7 @@ class loginTwo extends StatefulWidget {
 
 class _loginTwoState extends State<loginTwo> {
   LoginController controller = Get.put(LoginController());
+  AuthController auth = Get.put(AuthController());
   // to call a contoller, you have to "put" it into memory first
   //not calling it here, just putting it in memory
   @override
@@ -69,11 +72,11 @@ class _loginTwoState extends State<loginTwo> {
                 //password textfield
                 //checking for a number
                 TextFormField(
-                  validator: (value) {
-                    //calling the logic part
-                    return controller.passValidation(value);
-                    //
-                  },
+                  //validator: (value) {
+                  //calling the logic part
+                  //return controller.passValidation(value);
+                  //
+                  // },
                   obscureText: true,
                   decoration: const InputDecoration(
                     border: UnderlineInputBorder(),
@@ -85,19 +88,24 @@ class _loginTwoState extends State<loginTwo> {
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
                     onPressed: () {
+                      print('test');
                       //when you press  this button, all the
                       //validators you set up will be checked.
                       //if they are validated, the code written here
                       //will run. In this case, a snack bar
                       //message
-                      if (controller.formKey.currentState!.validate()) {
-                        //ScaffoldMessenger.of(context).showSnackBar(
-                        // SnackBar(
-                        //   content: Text('Processing..'),
-                        // ),
-                        //);
-                        Get.offAll(LandingPage());
-                      }
+                      //if (controller.formKey.currentState!.validate()) {
+                      auth.emailAndPasswordLogin(
+                          controller.emailController.text,
+                          controller
+                              .passwordController.text); //takes two parameters
+                      //}
+                      //ScaffoldMessenger.of(context).showSnackBar(
+                      // SnackBar(
+                      //   content: Text('Processing..'),
+                      // ),
+                      //);
+                      //Get.offAll(LandingPage());
                     },
                     child: Text('Login'),
                     style: ButtonStyle(
@@ -122,7 +130,9 @@ class _loginTwoState extends State<loginTwo> {
                 SizedBox(height: 150.0),
                 TextButton(
                   onPressed: () {
-                    Get.to(NewAccount());
+                    print(
+                        '################################################ about to go to sign up');
+                    Get.to(NewAccount()); //sign_up.dart
                   },
                   style: TextButton.styleFrom(
                     foregroundColor: Color.fromARGB(111, 0, 0, 0),

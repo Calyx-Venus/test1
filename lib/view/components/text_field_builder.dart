@@ -5,11 +5,15 @@ import 'package:flutter/material.dart';
 class TextFieldBuilder extends StatelessWidget {
   const TextFieldBuilder({
     Key? key,
+    //parameters
     required this.hint,
     required this.icon,
     required this.obscure,
     required this.validator,
+    required this.controller,
   }) : super(key: key);
+  //variable cups
+  final TextEditingController controller;
   final String hint;
   final Icon icon;
   final bool obscure;
@@ -33,6 +37,7 @@ class TextFieldBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       validator: validator,
       obscureText: obscure,
       decoration: InputDecoration(

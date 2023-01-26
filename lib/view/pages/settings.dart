@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
+import 'package:test1/view/pages/landing_page.dart';
+import 'package:test1/view/pages/newlogin.dart';
+
+import '../../controllers/auth_controller.dart';
 
 class SettingsPg extends StatefulWidget {
   const SettingsPg({super.key});
@@ -8,6 +14,8 @@ class SettingsPg extends StatefulWidget {
 }
 
 class _SettingsPgState extends State<SettingsPg> {
+  FirebaseAuth firebaseAuth = FirebaseAuth.instance; // connecting to firebase
+  AuthController auth = Get.put(AuthController()); //variable
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +41,12 @@ class _SettingsPgState extends State<SettingsPg> {
               Text('Upgrade Your Account'),
               SizedBox(height: 20),
               Text('Help'),
+              SizedBox(height: 20),
+              TextButton(
+                  onPressed: () {
+                    auth.logOut(); // logic in the auth controller
+                  },
+                  child: Text('Logout'))
             ],
           ),
         ),

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>225932137467-vedj3fjp1hliqpfdd2esptm55g1vn5qj.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.225932137467-vedj3fjp1hliqpfdd2esptm55g1vn5qj</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>225932137467-kjndledoc9g6bcog5n0j38gtgiugjrlq.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAMkNRqeTtcSnQ0QMtaQFheUfL0ZZwcBy0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>225932137467</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.lexi.calyx</string>
+	<key>PROJECT_ID</key>
+	<string>calyx-project</string>
+	<key>STORAGE_BUCKET</key>
+	<string>calyx-project.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:225932137467:ios:fbb62084268be32af4715e</string>
+</dict>
+</plist>

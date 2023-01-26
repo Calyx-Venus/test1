@@ -5,6 +5,8 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 
 class LoginController extends GetxController {
   late GlobalKey<FormState> formKey;
+  late TextEditingController emailController; //to get user input
+  late TextEditingController passwordController; //to get user input
   late int X; //variables here
   //'late' because defined later
   //not define until initialize
@@ -12,6 +14,8 @@ class LoginController extends GetxController {
   void onInit() {
     X = 10;
     formKey = GlobalKey<FormState>();
+    emailController = TextEditingController(); //to get user input
+    passwordController = TextEditingController(); //to get user input
     super.onInit();
   }
 

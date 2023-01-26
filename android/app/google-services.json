@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "225932137467",
+    "project_id": "calyx-project",
+    "storage_bucket": "calyx-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:225932137467:android:e938cea77ffca242f4715e",
+        "android_client_info": {
+          "package_name": "com.lexi.calyx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "225932137467-kjndledoc9g6bcog5n0j38gtgiugjrlq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lexi.calyx",
+            "certificate_hash": "2f67857600533f7c652e60cfe513637d2a1c2cde"
+          }
+        },
+        {
+          "client_id": "225932137467-ts4us81tf895qcpja1k6frk5a3gn15sv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-n88LXpvzQgqT7G-kuy48PkgCEh4rUoA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "225932137467-ts4us81tf895qcpja1k6frk5a3gn15sv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
